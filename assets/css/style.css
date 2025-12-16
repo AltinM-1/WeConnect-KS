@@ -1,7 +1,7 @@
 :root {
-    --primary: #2563eb;
+    --primary: #f43f5e;
     
-    --primary-dark: #1e40af;
+    --primary-dark: #b7132e;
     --secondary: #f43f5e;
     
     --accent: #f59e0b;
@@ -82,12 +82,42 @@ ul {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+}
+
+.logo-badge {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary );
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2D3748;
+}
+
+.logo-subtitle {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .nav-links {
@@ -205,29 +235,46 @@ ul {
 
 .badge {
     display: inline-block;
-    background: var(--accent);
+    background: #1a1a1a;
     color: #fff;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
     font-size: 13px;
     margin-bottom: 18px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .badge-tech {
-    background-color: var(--primary);
+    background-color: #1a1a1a;
     color: white;
 }
 
 .btn-primary-large {
-    background: var(--accent);
+    background: linear-gradient(to right, #ff6b35, #f72585);
     color: white;
-    padding: 14px 28px;
-    border-radius: 40px;
+    padding: 16px 36px;
+    border-radius: 50px;
     font-weight: 700;
+    font-size: 16px;
     text-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.btn-primary-large::after {
+    content: "→";
+    font-size: 18px;
 }
 
 .slider-btn {
@@ -383,11 +430,13 @@ ul {
 
 
 .badge-art {
-    background-color: var(--secondary);
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .badge-top {
-    background-color: var(--accent);
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .badge-sport {
@@ -531,7 +580,6 @@ ul {
     padding: 0.6rem 0.9rem;
     border-radius: 8px;
     margin-bottom: 0.75rem;
-    /* hidden by default; shown only when JS makes it visible */
     display: none;
 }
 
@@ -606,6 +654,47 @@ ul {
 
 .footer-brand p {
     color: #94a3b8;
+    max-width: 300px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-badge {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: var(--shadow);
+}
+
+.brand-text h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.brand-sub {
+    display: block;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.brand-text p {
+    margin-top: 8px;
+    color: #94a3b8;
+    margin-bottom: 0;
     max-width: 300px;
 }
 

@@ -43,5 +43,17 @@ function clearErrors() {
 }
 
 function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!email || typeof email !== 'string') 
+        return false;
+    if (email.indexOf(' ') !== -1) 
+        return false;
+    const parts = email.split('@');
+    if (parts.length !== 2) 
+        return false;
+    const [local, domain] = parts;
+    if (!local || !domain) 
+        return false;
+    if (domain.indexOf('.') === -1) 
+        return false;
+    return true;
 }
