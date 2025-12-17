@@ -1,27 +1,16 @@
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
-if (slides.length > 0) {
+if (slides.length) {
+  function showSlide(index) {
+    currentSlide = ((index % slides.length) + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+  }
 
-    function showSlide(index) {
-        if (index >= slides.length) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = slides.length - 1;
-        } else {
-            currentSlide = index;
-        }
+  function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+  }
+  window.changeSlide = changeSlide;
 
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[currentSlide].classList.add('active');
-    }
-
-    function changeSlide(direction) {
-        showSlide(currentSlide + direction);
-    }
-    window.changeSlide = changeSlide;
-
-    setInterval(() => {
-        changeSlide(1);
-    }, 5000);
+  setInterval(() => changeSlide(1), 5000);
 }

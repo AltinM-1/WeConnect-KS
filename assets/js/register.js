@@ -11,19 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearAll() {
         document.querySelectorAll('.error-message').forEach(e => e.textContent = '');
         document.querySelectorAll('input').forEach(i => i.classList.remove('invalid'));
-        successMessage.style.display = 'none';
-        successMessage.textContent = '';
+        if (successMessage) {
+            successMessage.style.display = 'none';
+            successMessage.textContent = '';
+        }
     }
 
     function isSimpleEmail(email) {
-        if (!email) return false;
-        email = email.trim();
-        const at = email.indexOf('@');
-        if (at <= 0) return false; 
-        const dot = email.indexOf('.', at + 2); 
-        if (dot === -1) return false;
-        if (dot === email.length - 1) return false;
-        return true;
+        return typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     }
 
     form.addEventListener('submit', function (e) {
